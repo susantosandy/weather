@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol MainWeatherPresenterToViewProtocol: class {
     
@@ -24,6 +25,11 @@ protocol MainWeatherViewToPresenterProtocol: class {
     var view: MainWeatherPresenterToViewProtocol? { get set }
     var interactor: MainWeatherPresenterToInteractorProtocol? { get set }
     var router: MainWeatherPresenterToRouterProtocol? { get set }
+    
+    var estimatedRowHeight: CGFloat { get }
+    var spacing: CGFloat { get }
+    var collectionCellWidth: CGFloat { get }
+    var collectionHeight: CGFloat { get }
 }
 
 protocol MainWeatherPresenterToRouterProtocol: class {

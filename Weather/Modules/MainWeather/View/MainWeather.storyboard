@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vbv-4M-1C3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vbv-4M-1C3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,7 +27,7 @@
                                                 <rect key="frame" x="270" y="16" width="32" height="32"/>
                                                 <state key="normal" image="ic_current_location"/>
                                                 <connections>
-                                                    <action selector="currentLocationPressed:" destination="Vbv-4M-1C3" eventType="touchUpInside" id="FWE-Lj-13t"/>
+                                                    <action selector="currentLocationPressed:" destination="Vbv-4M-1C3" eventType="touchUpInside" id="48h-oM-N5H"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbR-3s-AuG">
@@ -35,16 +35,13 @@
                                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" image="ic_search"/>
                                                 <connections>
-                                                    <action selector="searchLocationPressed:" destination="Vbv-4M-1C3" eventType="touchUpInside" id="yCY-Mw-HH5"/>
+                                                    <action selector="searchLocationPressed:" destination="Vbv-4M-1C3" eventType="touchUpInside" id="QTC-EE-QcX"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ex-gH-wgW">
                                                 <rect key="frame" x="366" y="16" width="32" height="32"/>
                                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" image="ic_option_menu"/>
-                                                <connections>
-                                                    <action selector="optionMenuPressed:" destination="Vbv-4M-1C3" eventType="touchUpInside" id="5yl-w0-X3Y"/>
-                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bandung" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTa-ay-2WT">
                                                 <rect key="frame" x="16" y="50" width="382" height="36"/>
@@ -113,7 +110,7 @@
                                                     <constraint firstAttribute="height" constant="114" id="uzM-tv-gDx"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="n9g-O0-pjI">
-                                                    <size key="itemSize" width="128" height="128"/>
+                                                    <size key="itemSize" width="128" height="50"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -133,7 +130,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2XZ-Uj-nan">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2XZ-Uj-nan" customClass="IntrinsicTableView" customModule="Weather" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="538" width="414" height="128"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -210,9 +207,19 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="buttonCurrentLocation" destination="abU-QZ-4wP" id="3CI-OQ-vpc"/>
-                        <outlet property="buttonOptionMenu" destination="5Ex-gH-wgW" id="6lt-ec-oga"/>
-                        <outlet property="buttonSearch" destination="RbR-3s-AuG" id="ofn-hw-nqk"/>
+                        <outlet property="buttonCurrentLocation" destination="abU-QZ-4wP" id="ngs-YH-KEJ"/>
+                        <outlet property="buttonOptionMenu" destination="5Ex-gH-wgW" id="LRB-C3-ccc"/>
+                        <outlet property="buttonSearch" destination="RbR-3s-AuG" id="YYM-cs-yyC"/>
+                        <outlet property="collectionViewForecast" destination="jjk-Xz-tMe" id="eAy-9x-1UM"/>
+                        <outlet property="collectionViewHeight" destination="uzM-tv-gDx" id="w5q-AR-xux"/>
+                        <outlet property="imageWeather" destination="Va5-tt-ZAl" id="Ogs-9Q-Ecp"/>
+                        <outlet property="labelCity" destination="jTa-ay-2WT" id="Bmj-EJ-emR"/>
+                        <outlet property="labelCurrentTemperature" destination="uK4-0R-yyt" id="DAy-15-60n"/>
+                        <outlet property="labelDate" destination="5ZZ-OP-SyE" id="FVE-hp-8Xx"/>
+                        <outlet property="labelTemperature" destination="F6p-xI-APQ" id="TUI-J8-gmS"/>
+                        <outlet property="labelWeather" destination="OD5-Fc-zdY" id="Hou-OJ-0hG"/>
+                        <outlet property="tableViewDetails" destination="2XZ-Uj-nan" id="MRf-YV-uPv"/>
+                        <outlet property="tableViewDetailsHeight" destination="3qs-4z-keV" id="Oek-uA-Bme"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H3e-gj-S6X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
