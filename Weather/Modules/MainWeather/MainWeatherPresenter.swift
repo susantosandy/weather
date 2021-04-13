@@ -18,6 +18,10 @@ class MainWeatherPresenter: MainWeatherViewToPresenterProtocol {
     var spacing: CGFloat = 8
     var collectionCellWidth: CGFloat = 78
     var collectionHeight: CGFloat = 115
+    
+    func showSearchWeather() {
+        router?.showSearchWeather()
+    }
 }
 
 extension MainWeatherPresenter: MainWeatherInteractorToPresenterProtocol {

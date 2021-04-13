@@ -69,6 +69,12 @@
 		7D4FDCF32625B66F00F54C83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4FDCF22625B66F00F54C83 /* AppDelegate.swift */; };
 		7D4FDCFC2625B67100F54C83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D4FDCFB2625B67100F54C83 /* Assets.xcassets */; };
 		7D4FDCFF2625B67100F54C83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D4FDCFD2625B67100F54C83 /* LaunchScreen.storyboard */; };
+		7DA42B4C262607DB00449018 /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA42B4B262607DB00449018 /* UIViewController+Navigation.swift */; };
+		7DA42B4F262607DE00449018 /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA42B4B262607DB00449018 /* UIViewController+Navigation.swift */; };
+		7DA42B54262608EE00449018 /* SearchWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA42B52262608ED00449018 /* SearchWeatherCell.swift */; };
+		7DA42B55262608EE00449018 /* SearchWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA42B52262608ED00449018 /* SearchWeatherCell.swift */; };
+		7DA42B56262608EE00449018 /* SearchWeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DA42B53262608ED00449018 /* SearchWeatherCell.xib */; };
+		7DA42B57262608EE00449018 /* SearchWeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DA42B53262608ED00449018 /* SearchWeatherCell.xib */; };
 		87EBC1CF0D648359C68BEDA2 /* libPods-Weather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7707454521F4E093049EE653 /* libPods-Weather.a */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +117,9 @@
 		7D4FDCFB2625B67100F54C83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D4FDCFE2625B67100F54C83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D4FDD002625B67100F54C83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DA42B4B262607DB00449018 /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
+		7DA42B52262608ED00449018 /* SearchWeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWeatherCell.swift; sourceTree = "<group>"; };
+		7DA42B53262608ED00449018 /* SearchWeatherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchWeatherCell.xib; sourceTree = "<group>"; };
 		BB11D4F75D345FC96C30ECC8 /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		BFD1A36F7ED33A2C08021CF1 /* Pods-WeatherStaging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherStaging.debug.xcconfig"; path = "Target Support Files/Pods-WeatherStaging/Pods-WeatherStaging.debug.xcconfig"; sourceTree = "<group>"; };
 		C5B8AAFCF74AA08F30454A74 /* Pods-WeatherStaging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherStaging.release.xcconfig"; path = "Target Support Files/Pods-WeatherStaging/Pods-WeatherStaging.release.xcconfig"; sourceTree = "<group>"; };
@@ -208,6 +217,7 @@
 			children = (
 				7D4152DB2625CDB0008694CE /* UIColor+RGB.swift */,
 				7D4153092625FF0E008694CE /* CALayer+Sketch.swift */,
+				7DA42B4B262607DB00449018 /* UIViewController+Navigation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -306,6 +316,8 @@
 		7D4152AB2625CBF7008694CE /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				7DA42B52262608ED00449018 /* SearchWeatherCell.swift */,
+				7DA42B53262608ED00449018 /* SearchWeatherCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -460,6 +472,7 @@
 				7D4152202625BADF008694CE /* LaunchScreen.storyboard in Resources */,
 				7D4152F42625DFE5008694CE /* WeatherDetailCell.xib in Resources */,
 				7D4152C52625CCA0008694CE /* AboutWeather.storyboard in Resources */,
+				7DA42B57262608EE00449018 /* SearchWeatherCell.xib in Resources */,
 				7D4152A32625CBAE008694CE /* SearchWeather.storyboard in Resources */,
 				7D41522E2625BB2F008694CE /* Assets.xcassets in Resources */,
 				7D41521D2625BADF008694CE /* Assets.xcassets in Resources */,
@@ -476,6 +489,7 @@
 				7D4152A22625CBAE008694CE /* SearchWeather.storyboard in Resources */,
 				7D4153052625FE4D008694CE /* ForecastWeatherCell.xib in Resources */,
 				7D4152C42625CCA0008694CE /* AboutWeather.storyboard in Resources */,
+				7DA42B56262608EE00449018 /* SearchWeatherCell.xib in Resources */,
 				7D4152F32625DFE5008694CE /* WeatherDetailCell.xib in Resources */,
 				7D4FDCFC2625B67100F54C83 /* Assets.xcassets in Resources */,
 				7D4152622625C754008694CE /* MainWeather.storyboard in Resources */,
@@ -548,8 +562,10 @@
 				7D4152DD2625CDB0008694CE /* UIColor+RGB.swift in Sources */,
 				7D4152CF2625CD39008694CE /* BaseViewController.swift in Sources */,
 				7D41530B2625FF0E008694CE /* CALayer+Sketch.swift in Sources */,
+				7DA42B4F262607DE00449018 /* UIViewController+Navigation.swift in Sources */,
 				7D4152A82625CBD2008694CE /* SearchWeatherViewController.swift in Sources */,
 				7D4152BF2625CC87008694CE /* AboutWeatherRouter.swift in Sources */,
+				7DA42B55262608EE00449018 /* SearchWeatherCell.swift in Sources */,
 				7D4152792625C81C008694CE /* MainWeatherPresenter.swift in Sources */,
 				7D4152CA2625CCB2008694CE /* AboutWeatherViewController.swift in Sources */,
 				7D4153042625FE4D008694CE /* ForecastWeatherCell.swift in Sources */,
@@ -578,8 +594,10 @@
 				7D4152DC2625CDB0008694CE /* UIColor+RGB.swift in Sources */,
 				7D4152CE2625CD39008694CE /* BaseViewController.swift in Sources */,
 				7D41530A2625FF0E008694CE /* CALayer+Sketch.swift in Sources */,
+				7DA42B4C262607DB00449018 /* UIViewController+Navigation.swift in Sources */,
 				7D4152A72625CBD2008694CE /* SearchWeatherViewController.swift in Sources */,
 				7D4152BE2625CC87008694CE /* AboutWeatherRouter.swift in Sources */,
+				7DA42B54262608EE00449018 /* SearchWeatherCell.swift in Sources */,
 				7D4152782625C81C008694CE /* MainWeatherPresenter.swift in Sources */,
 				7D4152C92625CCB2008694CE /* AboutWeatherViewController.swift in Sources */,
 				7D4153032625FE4D008694CE /* ForecastWeatherCell.swift in Sources */,

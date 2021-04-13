@@ -48,7 +48,7 @@ class MainWeatherViewController: BaseViewController {
     }
     
     @IBAction func searchLocationPressed(_ sender: UIButton) {
-        
+        presenter.showSearchWeather()
     }
     
     @IBAction func optionMenuPressed(_ sender: UIButton) {

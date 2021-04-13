@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol SearchWeatherPresenterToViewProtocol: class {
     
@@ -24,6 +25,8 @@ protocol SearchWeatherViewToPresenterProtocol: class {
     var view: SearchWeatherPresenterToViewProtocol? { get set }
     var interactor: SearchWeatherPresenterToInteractorProtocol? { get set }
     var router: SearchWeatherPresenterToRouterProtocol? { get set }
+    
+    var estimatedRowHeight: CGFloat { get }
 }
 
 protocol SearchWeatherPresenterToRouterProtocol: class {

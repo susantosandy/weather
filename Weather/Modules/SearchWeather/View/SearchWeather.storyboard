@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VNs-Yh-YLI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VNs-Yh-YLI">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,13 +12,28 @@
         <!--Search Weather View Controller-->
         <scene sceneID="gmW-ay-Pcb">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="VNs-Yh-YLI" customClass="SearchWeatherViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchWeatherViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VNs-Yh-YLI" customClass="SearchWeatherViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YMu-K0-YuW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oUK-aH-kgM">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="90R-e5-VXm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oUK-aH-kgM" firstAttribute="leading" secondItem="90R-e5-VXm" secondAttribute="leading" id="K9q-IF-cC5"/>
+                            <constraint firstItem="oUK-aH-kgM" firstAttribute="top" secondItem="90R-e5-VXm" secondAttribute="top" id="koD-gC-ccB"/>
+                            <constraint firstItem="90R-e5-VXm" firstAttribute="bottom" secondItem="oUK-aH-kgM" secondAttribute="bottom" id="yos-3K-Nld"/>
+                            <constraint firstItem="90R-e5-VXm" firstAttribute="trailing" secondItem="oUK-aH-kgM" secondAttribute="trailing" id="yrl-s7-VPj"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableViewSearch" destination="oUK-aH-kgM" id="hZ7-ue-mVs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dzv-xG-ZKV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

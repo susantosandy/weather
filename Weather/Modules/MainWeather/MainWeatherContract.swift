@@ -30,8 +30,12 @@ protocol MainWeatherViewToPresenterProtocol: class {
     var spacing: CGFloat { get }
     var collectionCellWidth: CGFloat { get }
     var collectionHeight: CGFloat { get }
+    
+    func showSearchWeather()
 }
 
 protocol MainWeatherPresenterToRouterProtocol: class {
     static func createModule() -> MainWeatherViewController
+    
+    func showSearchWeather()
 }

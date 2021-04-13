@@ -27,4 +27,11 @@ class MainWeatherRouter: MainWeatherPresenterToRouterProtocol {
         
         return viewController
     }
+    
+    func showSearchWeather() {
+        let search = SearchWeatherRouter.createModule()
+        let searchNav: UINavigationController = UINavigationController(rootViewController: search)
+//        search.delegate = view
+        view?.present(searchNav, animated: true, completion: nil)
+    }
 }
