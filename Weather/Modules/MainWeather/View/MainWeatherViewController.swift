@@ -52,6 +52,9 @@ class MainWeatherViewController: BaseViewController {
         let latitude = presenter.currentLocationLatitude
         let longitude = presenter.currentLocationLongitude
         
+        presenter.forecastDetailLatitude = latitude
+        presenter.forecastDetailLongitude = longitude
+        
         if let latitude = latitude, let longitude = longitude {
             presenter.getCurrentWeather(withLatitude: latitude, withLongitude: longitude)
             presenter.getCurrentForecast(withLatitude: latitude, withLongitude: longitude)
@@ -171,6 +174,8 @@ extension MainWeatherViewController: CLLocationManagerDelegate {
         
         presenter.currentLocationLatitude = latitude
         presenter.currentLocationLongitude = longitude
+        presenter.forecastDetailLatitude = latitude
+        presenter.forecastDetailLongitude = longitude
         
         presenter.getCurrentWeather(withLatitude: latitude, withLongitude: longitude)
         presenter.getCurrentForecast(withLatitude: latitude, withLongitude: longitude)
@@ -252,8 +257,10 @@ extension MainWeatherViewController: IntrinsicTableViewDelegate {
 }
 
 extension MainWeatherViewController: SearchWeatherViewDelegate {
-    func searchWeatherViewController(withView view: SearchWeatherViewController, withCityId cityId: Int) {
+    func searchWeatherViewController(withView view: SearchWeatherViewController, withCityId cityId: Int, withLatitude latitude: Double, withLongitude longitude: Double) {
         presenter.cityId = cityId
+        presenter.forecastDetailLatitude = latitude
+        presenter.forecastDetailLongitude = longitude
         presenter.getWeatherForecastDetail(withCityId: cityId)
         presenter.getWeatherDetail(withCityId: cityId)
     }

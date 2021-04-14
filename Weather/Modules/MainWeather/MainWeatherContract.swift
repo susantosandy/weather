@@ -50,6 +50,8 @@ protocol MainWeatherViewToPresenterProtocol: class {
     var collectionHeight: CGFloat { get }
     var currentLocationLatitude: Double? { get set }
     var currentLocationLongitude: Double? { get set }
+    var forecastDetailLatitude: Double? { get set }
+    var forecastDetailLongitude: Double? { get set }
     var enumWeatherUnit: EnumWeatherUnits { get set }
     var title: String { get }
     var message: String { get }

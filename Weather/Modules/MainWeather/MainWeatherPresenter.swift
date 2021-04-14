@@ -20,6 +20,8 @@ class MainWeatherPresenter: MainWeatherViewToPresenterProtocol {
     var collectionHeight: CGFloat = 151
     var currentLocationLatitude: Double?
     var currentLocationLongitude: Double?
+    var forecastDetailLatitude: Double?
+    var forecastDetailLongitude: Double?
     var enumWeatherUnit: EnumWeatherUnits = .metric
     var title = "Location Permission"
     var message = "Go to settings and allow this app to access your location!"

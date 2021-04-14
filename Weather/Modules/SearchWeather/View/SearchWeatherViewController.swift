@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SearchWeatherViewDelegate {
-    func searchWeatherViewController(withView view: SearchWeatherViewController, withCityId cityId: Int)
+    func searchWeatherViewController(withView view: SearchWeatherViewController, withCityId cityId: Int, withLatitude latitude: Double, withLongitude longitude: Double)
 }
 
 class SearchWeatherViewController: BaseViewController {
@@ -78,9 +78,9 @@ extension SearchWeatherViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = indexPath.row
         
-        if let search = presenter.search, search.list.indices.contains(row), let cityId = search.list[row].id {
+        if let search = presenter.search, search.list.indices.contains(row), let cityId = search.list[row].id, let coordinate = search.list[row].coordinate, let latitude = coordinate.latitude, let longitude = coordinate.longitude {
             self.dismiss(animated: true) {
-                self.delegate?.searchWeatherViewController(withView: self, withCityId: cityId)
+                self.delegate?.searchWeatherViewController(withView: self, withCityId: cityId, withLatitude: latitude, withLongitude: longitude)
             }
         }
     }
