@@ -209,15 +209,21 @@ extension MainWeatherViewController: UICollectionViewDelegate, UICollectionViewD
 
 extension MainWeatherViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return presenter.weatherDetails.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: ReuseIdentifier.weatherDetailCell) as! WeatherDetailCell
+        if presenter.weatherDetails.indices.contains(row) {
+            let weatherDetail = presenter.weatherDetails[row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: ReuseIdentifier.weatherDetailCell) as! WeatherDetailCell
+            cell.setupData(withImage: weatherDetail.icon ?? "", withLabelName: weatherDetail.label ?? "", withlabelValue: weatherDetail.value ?? "")
+            
+            return cell
+        }
         
-        return cell
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

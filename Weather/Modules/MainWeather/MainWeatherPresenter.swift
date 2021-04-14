@@ -24,6 +24,53 @@ class MainWeatherPresenter: MainWeatherViewToPresenterProtocol {
     var title = "Location Permission"
     var message = "Go to settings and allow this app to access your location!"
     var weather: Weather?
+    var weatherDetails: [WeatherDetailRow] {
+        get{
+            var rows: [WeatherDetailRow] = []
+            
+            // Humidity
+            if let humidity = weather?.main?.humidity {
+                rows.append(WeatherDetailRow(row: .humidity, icon: "ic_humidity", label: "Humidity", value: "\(humidity)%"))
+            }
+            
+            // Pressure
+            if let pressure = weather?.main?.pressure {
+                rows.append(WeatherDetailRow(row: .pressure, icon: "ic_pressure", label: "Atmospheric Pressure", value: "\(Int(pressure)) hpa"))
+            }
+            
+            // Wind Speed
+            if let wind = weather?.wind?.speed {
+                rows.append(WeatherDetailRow(row: .windSpeed, icon: "ic_wind_speed", label: "Wind", value: "\(wind) m/s"))
+            }
+            
+            // Temperature Min
+            if let temperatureMin = weather?.main?.temperatureMin {
+                rows.append(WeatherDetailRow(row: .temperatureMin, icon: "ic_temp_min", label: "Min Temperature", value: "\(temperatureMin.measurement(withUnitTemperature: enumWeatherUnit))"))
+            }
+            
+            // Temperature Max
+            if let temperatureMax = weather?.main?.temperatureMax {
+                rows.append(WeatherDetailRow(row: .temperatureMax, icon: "ic_temp_max", label: "Max Temperature", value: "\(temperatureMax.measurement(withUnitTemperature: enumWeatherUnit))"))
+            }
+            
+            // Clouds
+            if let clouds = weather?.clouds?.all {
+                rows.append(WeatherDetailRow(row: .clouds, icon: "ic_03d", label: "Clouds", value: "\(clouds)%"))
+            }
+            
+            // Sunrise
+            if let sunrise = weather?.sys?.sunrise {
+                rows.append(WeatherDetailRow(row: .sunrise, icon: "ic_sunrise", label: "Sunrise", value: "\(sunrise.timestampToString(withFormat: "HH:mm"))"))
+            }
+            
+            // Sunset
+            if let sunset = weather?.sys?.sunset {
+                rows.append(WeatherDetailRow(row: .sunset, icon: "ic_sunset", label: "Sunset", value: "\(sunset.timestampToString(withFormat: "HH:mm"))"))
+            }
+            
+            return rows
+        }
+    }
     
     func getCurrentWeather(withLatitude latitude: Double, withLongitude longitude: Double) {
         let weatherRequest = WeatherRequest()

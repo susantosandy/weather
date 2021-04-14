@@ -39,6 +39,7 @@ protocol MainWeatherViewToPresenterProtocol: class {
     var title: String { get }
     var message: String { get }
     var weather: Weather? { get set }
+    var weatherDetails: [WeatherDetailRow] { get }
     
     func showSearchWeather()
     func getCurrentWeather(withLatitude latitude: Double, withLongitude longitude: Double)
