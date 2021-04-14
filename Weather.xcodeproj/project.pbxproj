@@ -1342,6 +1342,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sandysusanto.WeatherTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG PRODUCTION";
 				SWIFT_OBJC_BRIDGING_HEADER = "Weather/WeatherTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1366,6 +1367,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sandysusanto.WeatherTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "RELEASE PRODUCTION";
 				SWIFT_OBJC_BRIDGING_HEADER = "Weather/WeatherTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1389,6 +1391,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sandysusanto.WeatherStagingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG STAGING";
 				SWIFT_OBJC_BRIDGING_HEADER = "Weather/WeatherTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1413,6 +1416,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sandysusanto.WeatherStagingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "RELEASE STAGING";
 				SWIFT_OBJC_BRIDGING_HEADER = "Weather/WeatherTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
