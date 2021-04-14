@@ -42,6 +42,9 @@
                                                 <rect key="frame" x="366" y="16" width="32" height="32"/>
                                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" image="ic_option_menu"/>
+                                                <connections>
+                                                    <action selector="optionMenuPressed:" destination="Vbv-4M-1C3" eventType="touchUpInside" id="bLa-O7-HDx"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bandung" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTa-ay-2WT">
                                                 <rect key="frame" x="16" y="50" width="382" height="36"/>

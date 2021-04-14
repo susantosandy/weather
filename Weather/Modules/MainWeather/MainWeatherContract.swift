@@ -63,15 +63,20 @@ protocol MainWeatherViewToPresenterProtocol: class {
     var forecast: Forecast? { get set }
     var cityId: Int? { get set }
     
-    func showSearchWeather()
     func getCurrentWeather(withLatitude latitude: Double, withLongitude longitude: Double)
     func getCurrentForecast(withLatitude latitude: Double, withLongitude longitude: Double)
     func getWeatherDetail(withCityId cityId: Int)
     func getWeatherForecastDetail(withCityId cityId: Int)
+    
+    func showSearchWeather()
+    func showOptionMenu()
+    func showAboutWeather()
 }
 
 protocol MainWeatherPresenterToRouterProtocol: class {
     static func createModule() -> MainWeatherViewController
     
     func showSearchWeather()
+    func showOptionMenu()
+    func showAboutWeather()
 }

@@ -12,13 +12,58 @@
         <!--About Weather View Controller-->
         <scene sceneID="fJE-Dx-NOZ">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="37g-Jg-gy8" customClass="AboutWeatherViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutWeatherViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="37g-Jg-gy8" customClass="AboutWeatherViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ver-Zv-rbA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_logo_weather" translatesAutoresizingMaskIntoConstraints="NO" id="7bx-JQ-Z2Y">
+                                <rect key="frame" x="140.5" y="262" width="133" height="105"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqW-md-URL">
+                                <rect key="frame" x="16" y="399" width="382" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simple Weather App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1k-U1-yeQ">
+                                <rect key="frame" x="111" y="436" width="192" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGB-Yj-yrR">
+                                <rect key="frame" x="16" y="476" width="382" height="61"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Using: 1. Architecture VIPER 2. Open Weather API">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" metaFont="system" size="17"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="WmK-dw-VPr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="WmK-dw-VPr" firstAttribute="trailing" secondItem="eqW-md-URL" secondAttribute="trailing" constant="16" id="1jb-ID-wNq"/>
+                            <constraint firstItem="a1k-U1-yeQ" firstAttribute="centerX" secondItem="Ver-Zv-rbA" secondAttribute="centerX" id="9na-zQ-p9U"/>
+                            <constraint firstItem="eqW-md-URL" firstAttribute="leading" secondItem="WmK-dw-VPr" secondAttribute="leading" constant="16" id="Fxg-5b-kdr"/>
+                            <constraint firstItem="a1k-U1-yeQ" firstAttribute="top" secondItem="eqW-md-URL" secondAttribute="bottom" constant="16" id="R74-8I-oc3"/>
+                            <constraint firstItem="a1k-U1-yeQ" firstAttribute="centerY" secondItem="Ver-Zv-rbA" secondAttribute="centerY" id="c6M-gH-mzN"/>
+                            <constraint firstItem="eqW-md-URL" firstAttribute="top" secondItem="7bx-JQ-Z2Y" secondAttribute="bottom" constant="32" id="dad-FI-hz8"/>
+                            <constraint firstItem="PGB-Yj-yrR" firstAttribute="leading" secondItem="WmK-dw-VPr" secondAttribute="leading" constant="16" id="mgy-F6-Xzg"/>
+                            <constraint firstItem="WmK-dw-VPr" firstAttribute="trailing" secondItem="PGB-Yj-yrR" secondAttribute="trailing" constant="16" id="sRn-B3-oGk"/>
+                            <constraint firstItem="PGB-Yj-yrR" firstAttribute="top" secondItem="a1k-U1-yeQ" secondAttribute="bottom" constant="16" id="tCn-d7-7xe"/>
+                            <constraint firstItem="7bx-JQ-Z2Y" firstAttribute="centerX" secondItem="Ver-Zv-rbA" secondAttribute="centerX" id="xde-C5-IMf"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="labelVersion" destination="eqW-md-URL" id="xul-Hf-GDQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NQJ-y7-gFh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -26,6 +71,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_logo_weather" width="133" height="105"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -115,6 +115,18 @@
 		7DB696E726271E7300BDE0BA /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DB696E526271E7300BDE0BA /* LoadingView.xib */; };
 		7DB696EB26271F7900BDE0BA /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB696EA26271F7900BDE0BA /* UIView+Nib.swift */; };
 		7DB696EC26271F7900BDE0BA /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB696EA26271F7900BDE0BA /* UIView+Nib.swift */; };
+		7DB696F3262727DA00BDE0BA /* OptionMenuContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB696F2262727DA00BDE0BA /* OptionMenuContract.swift */; };
+		7DB696F4262727DA00BDE0BA /* OptionMenuContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB696F2262727DA00BDE0BA /* OptionMenuContract.swift */; };
+		7DB696FA2627286900BDE0BA /* OptionMenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB696F92627286900BDE0BA /* OptionMenuInteractor.swift */; };
+		7DB696FB2627286900BDE0BA /* OptionMenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB696F92627286900BDE0BA /* OptionMenuInteractor.swift */; };
+		7DB696FF2627287700BDE0BA /* OptionMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB696FE2627287700BDE0BA /* OptionMenuPresenter.swift */; };
+		7DB697002627287700BDE0BA /* OptionMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB696FE2627287700BDE0BA /* OptionMenuPresenter.swift */; };
+		7DB697042627288400BDE0BA /* OptionMenuRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB697032627288400BDE0BA /* OptionMenuRouter.swift */; };
+		7DB697052627288400BDE0BA /* OptionMenuRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB697032627288400BDE0BA /* OptionMenuRouter.swift */; };
+		7DB6970A262728B600BDE0BA /* OptionMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB69709262728B600BDE0BA /* OptionMenu.storyboard */; };
+		7DB6970B262728B600BDE0BA /* OptionMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB69709262728B600BDE0BA /* OptionMenu.storyboard */; };
+		7DB6970F262728C700BDE0BA /* OptionMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB6970E262728C700BDE0BA /* OptionMenuViewController.swift */; };
+		7DB69710262728C700BDE0BA /* OptionMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB6970E262728C700BDE0BA /* OptionMenuViewController.swift */; };
 		7DF357B42626BB6C00D256F4 /* Int64+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF357B32626BB6C00D256F4 /* Int64+Time.swift */; };
 		7DF357B52626BB6C00D256F4 /* Int64+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF357B32626BB6C00D256F4 /* Int64+Time.swift */; };
 		7DF357B92626BBCB00D256F4 /* Double+Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF357B82626BBCB00D256F4 /* Double+Measurement.swift */; };
@@ -200,6 +212,12 @@
 		7DB696DE26271E3E00BDE0BA /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		7DB696E526271E7300BDE0BA /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		7DB696EA26271F7900BDE0BA /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
+		7DB696F2262727DA00BDE0BA /* OptionMenuContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionMenuContract.swift; sourceTree = "<group>"; };
+		7DB696F92627286900BDE0BA /* OptionMenuInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionMenuInteractor.swift; sourceTree = "<group>"; };
+		7DB696FE2627287700BDE0BA /* OptionMenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionMenuPresenter.swift; sourceTree = "<group>"; };
+		7DB697032627288400BDE0BA /* OptionMenuRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionMenuRouter.swift; sourceTree = "<group>"; };
+		7DB69709262728B600BDE0BA /* OptionMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OptionMenu.storyboard; sourceTree = "<group>"; };
+		7DB6970E262728C700BDE0BA /* OptionMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionMenuViewController.swift; sourceTree = "<group>"; };
 		7DF357B32626BB6C00D256F4 /* Int64+Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64+Time.swift"; sourceTree = "<group>"; };
 		7DF357B82626BBCB00D256F4 /* Double+Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Measurement.swift"; sourceTree = "<group>"; };
 		7DF357BD2626BE5F00D256F4 /* EnumWeatherDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumWeatherDetail.swift; sourceTree = "<group>"; };
@@ -341,6 +359,7 @@
 		7D4152552625C422008694CE /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7DB696F1262727BB00BDE0BA /* OptionMenu */,
 				7D4152CD2625CD39008694CE /* BaseViewController.swift */,
 				7D41525F2625C6A2008694CE /* AboutWeather */,
 				7DB696DB26271DD800BDE0BA /* Loading */,
@@ -532,6 +551,27 @@
 			path = LoadingView;
 			sourceTree = "<group>";
 		};
+		7DB696F1262727BB00BDE0BA /* OptionMenu */ = {
+			isa = PBXGroup;
+			children = (
+				7DB697082627288A00BDE0BA /* View */,
+				7DB696F2262727DA00BDE0BA /* OptionMenuContract.swift */,
+				7DB696F92627286900BDE0BA /* OptionMenuInteractor.swift */,
+				7DB696FE2627287700BDE0BA /* OptionMenuPresenter.swift */,
+				7DB697032627288400BDE0BA /* OptionMenuRouter.swift */,
+			);
+			path = OptionMenu;
+			sourceTree = "<group>";
+		};
+		7DB697082627288A00BDE0BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7DB69709262728B600BDE0BA /* OptionMenu.storyboard */,
+				7DB6970E262728C700BDE0BA /* OptionMenuViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		7DF357CC2626CA3900D256F4 /* Forecast */ = {
 			isa = PBXGroup;
 			children = (
@@ -630,6 +670,7 @@
 				7D41521D2625BADF008694CE /* Assets.xcassets in Resources */,
 				7D41526A2625C777008694CE /* MainWeather.storyboard in Resources */,
 				7D4153062625FE4D008694CE /* ForecastWeatherCell.xib in Resources */,
+				7DB6970B262728B600BDE0BA /* OptionMenu.storyboard in Resources */,
 				7DB696E726271E7300BDE0BA /* LoadingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -646,6 +687,7 @@
 				7D4152F32625DFE5008694CE /* WeatherDetailCell.xib in Resources */,
 				7DB696E626271E7300BDE0BA /* LoadingView.xib in Resources */,
 				7D4FDCFC2625B67100F54C83 /* Assets.xcassets in Resources */,
+				7DB6970A262728B600BDE0BA /* OptionMenu.storyboard in Resources */,
 				7D4152622625C754008694CE /* MainWeather.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -711,6 +753,7 @@
 				7D4152F22625DFE5008694CE /* WeatherDetailCell.swift in Sources */,
 				7DF357BF2626BE5F00D256F4 /* EnumWeatherDetail.swift in Sources */,
 				7D41522B2625BB27008694CE /* AppDelegate.swift in Sources */,
+				7DB697002627287700BDE0BA /* OptionMenuPresenter.swift in Sources */,
 				7D4152B52625CC62008694CE /* AboutWeatherInteractor.swift in Sources */,
 				7D4152742625C80A008694CE /* MainWeatherInteractor.swift in Sources */,
 				7D4152E22625DDD2008694CE /* IntrinsicTableView.swift in Sources */,
@@ -735,13 +778,16 @@
 				7D4152BF2625CC87008694CE /* AboutWeatherRouter.swift in Sources */,
 				7DA42B6426260F0700449018 /* ApiWeather.swift in Sources */,
 				7DF357DB2626D08C00D256F4 /* String+Time.swift in Sources */,
+				7DB697052627288400BDE0BA /* OptionMenuRouter.swift in Sources */,
 				7DF357D62626CA7D00D256F4 /* ForecastCity.swift in Sources */,
+				7DB696F4262727DA00BDE0BA /* OptionMenuContract.swift in Sources */,
 				7DA42B7426260F7800449018 /* WeatherRequest.swift in Sources */,
 				7DA42B55262608EE00449018 /* SearchWeatherCell.swift in Sources */,
 				7D4152792625C81C008694CE /* MainWeatherPresenter.swift in Sources */,
 				7D4152CA2625CCB2008694CE /* AboutWeatherViewController.swift in Sources */,
 				7DA42B832626101F00449018 /* BaseDAO.swift in Sources */,
 				7DA42BBA262614A000449018 /* WeatherItem.swift in Sources */,
+				7DB69710262728C700BDE0BA /* OptionMenuViewController.swift in Sources */,
 				7DB696EC26271F7900BDE0BA /* UIView+Nib.swift in Sources */,
 				7D4153042625FE4D008694CE /* ForecastWeatherCell.swift in Sources */,
 				7D41529D2625CB95008694CE /* SearchWeatherRouter.swift in Sources */,
@@ -757,6 +803,7 @@
 				7DA42B9D262613E300449018 /* Weather.swift in Sources */,
 				7DF357B52626BB6C00D256F4 /* Int64+Time.swift in Sources */,
 				7DA42BBF262614C600449018 /* WeatherMain.swift in Sources */,
+				7DB696FB2627286900BDE0BA /* OptionMenuInteractor.swift in Sources */,
 				7DF357C92626CA1900D256F4 /* ForecastDAO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -772,6 +819,7 @@
 				7D41528B2625CB57008694CE /* SearchWeatherContract.swift in Sources */,
 				7DF357BE2626BE5F00D256F4 /* EnumWeatherDetail.swift in Sources */,
 				7D4152922625CB69008694CE /* SearchWeatherInteractor.swift in Sources */,
+				7DB696FF2627287700BDE0BA /* OptionMenuPresenter.swift in Sources */,
 				7D4152F12625DFE5008694CE /* WeatherDetailCell.swift in Sources */,
 				7D41527D2625C82A008694CE /* MainWeatherRouter.swift in Sources */,
 				7D4152B42625CC62008694CE /* AboutWeatherInteractor.swift in Sources */,
@@ -796,13 +844,16 @@
 				7D4152A72625CBD2008694CE /* SearchWeatherViewController.swift in Sources */,
 				7D4152BE2625CC87008694CE /* AboutWeatherRouter.swift in Sources */,
 				7DF357DA2626D08C00D256F4 /* String+Time.swift in Sources */,
+				7DB697042627288400BDE0BA /* OptionMenuRouter.swift in Sources */,
 				7DF357D52626CA7D00D256F4 /* ForecastCity.swift in Sources */,
+				7DB696F3262727DA00BDE0BA /* OptionMenuContract.swift in Sources */,
 				7DA42B7326260F7800449018 /* WeatherRequest.swift in Sources */,
 				7DA42B54262608EE00449018 /* SearchWeatherCell.swift in Sources */,
 				7D4152782625C81C008694CE /* MainWeatherPresenter.swift in Sources */,
 				7D4152C92625CCB2008694CE /* AboutWeatherViewController.swift in Sources */,
 				7DA42B822626101F00449018 /* BaseDAO.swift in Sources */,
 				7DA42BB9262614A000449018 /* WeatherItem.swift in Sources */,
+				7DB6970F262728C700BDE0BA /* OptionMenuViewController.swift in Sources */,
 				7DB696EB26271F7900BDE0BA /* UIView+Nib.swift in Sources */,
 				7D4153032625FE4D008694CE /* ForecastWeatherCell.swift in Sources */,
 				7D41529C2625CB95008694CE /* SearchWeatherRouter.swift in Sources */,
@@ -818,6 +869,7 @@
 				7DA42B98262613CD00449018 /* Weather.swift in Sources */,
 				7DF357B42626BB6C00D256F4 /* Int64+Time.swift in Sources */,
 				7DA42BBE262614C600449018 /* WeatherMain.swift in Sources */,
+				7DB696FA2627286900BDE0BA /* OptionMenuInteractor.swift in Sources */,
 				7DF357C82626CA1900D256F4 /* ForecastDAO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -34,4 +34,25 @@ class MainWeatherRouter: MainWeatherPresenterToRouterProtocol {
         search.delegate = view
         view?.present(searchNav, animated: true, completion: nil)
     }
+    
+    func showOptionMenu() {
+        let optionMenu = OptionMenuRouter.createModule()
+        optionMenu.delegate = view
+        optionMenu.view.backgroundColor = .white
+        optionMenu.view.layer.setShadows()
+        optionMenu.preferredContentSize = CGSize(width: 80, height: 50)
+        optionMenu.modalPresentationStyle = .popover
+        let popover = optionMenu.popoverPresentationController
+        popover?.delegate = view
+        popover?.backgroundColor = .white
+        popover?.permittedArrowDirections = .up
+        popover?.sourceView = view?.buttonOptionMenu
+        popover?.sourceRect = CGRect(x: 12, y: 30, width: 0, height: 0)
+        view?.present(optionMenu, animated: true, completion: nil)
+    }
+    
+    func showAboutWeather() {
+        let about = AboutWeatherRouter.createModule()
+        view?.navigationController?.pushViewController(about, animated: true)
+    }
 }

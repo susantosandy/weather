@@ -80,7 +80,7 @@ class MainWeatherViewController: BaseViewController {
     }
     
     @IBAction func optionMenuPressed(_ sender: UIButton) {
-        
+        presenter.showOptionMenu()
     }
     
     // Setup Data
@@ -283,6 +283,18 @@ extension MainWeatherViewController: SearchWeatherViewDelegate {
         presenter.forecastDetailLongitude = longitude
         presenter.getWeatherForecastDetail(withCityId: cityId)
         presenter.getWeatherDetail(withCityId: cityId)
+    }
+}
+
+extension MainWeatherViewController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+}
+
+extension MainWeatherViewController: OptionMenuViewDelegate {
+    func optionMenuViewController(withView view: OptionMenuViewController) {
+        presenter.showAboutWeather()
     }
 }
 

@@ -113,6 +113,14 @@ class MainWeatherPresenter: MainWeatherViewToPresenterProtocol {
     func showSearchWeather() {
         router?.showSearchWeather()
     }
+    
+    func showOptionMenu() {
+        router?.showOptionMenu()
+    }
+    
+    func showAboutWeather() {
+        router?.showAboutWeather()
+    }
 }
 
 extension MainWeatherPresenter: MainWeatherInteractorToPresenterProtocol {
