@@ -17,3 +17,11 @@ target 'WeatherStaging' do
   # Comment the next line if you don't want to use dynamic frameworks
   weather_pods
 end
+
+target 'WeatherTests' do
+  weather_pods
+end
+
+target 'WeatherStagingTests' do
+  weather_pods
+end
