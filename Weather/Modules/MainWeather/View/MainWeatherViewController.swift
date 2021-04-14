@@ -54,6 +54,7 @@ class MainWeatherViewController: BaseViewController {
         
         if let latitude = latitude, let longitude = longitude {
             presenter.getCurrentWeather(withLatitude: latitude, withLongitude: longitude)
+            presenter.getCurrentForecast(withLatitude: latitude, withLongitude: longitude)
         }
     }
     
@@ -172,6 +173,7 @@ extension MainWeatherViewController: CLLocationManagerDelegate {
         presenter.currentLocationLongitude = longitude
         
         presenter.getCurrentWeather(withLatitude: latitude, withLongitude: longitude)
+        presenter.getCurrentForecast(withLatitude: latitude, withLongitude: longitude)
         
         locationManager.stopUpdatingLocation()
     }
@@ -179,15 +181,23 @@ extension MainWeatherViewController: CLLocationManagerDelegate {
 
 extension MainWeatherViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return presenter.forecast?.list.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let row = indexPath.row
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifier.forecastWeatherCell, for: indexPath) as! ForecastWeatherCell
+        if let presenter = presenter, let forecast = presenter.forecast, forecast.list.indices.contains(row) {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifier.forecastWeatherCell, for: indexPath) as! ForecastWeatherCell
+            
+            if let weather = presenter.forecast?.list[row] {
+                cell.setupData(withWeather: weather, withUnits: presenter.enumWeatherUnit)
+            }
+            
+            return cell
+        }
         
-        return cell
+        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -250,8 +260,22 @@ extension MainWeatherViewController: MainWeatherPresenterToViewProtocol {
         
     }
     
+    func showCurrentForecastSucceed() {
+        setupForecast()
+    }
+    
+    func showCurrentForecastFailed(withErrorException error: ErrorExceptionAPI) {
+        
+    }
+    
     func setupWeather() {
         setupData()
         tableViewDetails.reloadData()
+    }
+    
+    func setupForecast() {
+        collectionViewForecast.isScrollEnabled = true
+        collectionViewHeight.constant = presenter.collectionHeight
+        collectionViewForecast.reloadData()
     }
 }

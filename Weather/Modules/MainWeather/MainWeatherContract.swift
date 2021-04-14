@@ -11,17 +11,22 @@ import UIKit
 protocol MainWeatherPresenterToViewProtocol: class {
     func showCurrentWeatherSucceed()
     func showCurrentWeatherFailed(withErrorException error: ErrorExceptionAPI)
+    func showCurrentForecastSucceed()
+    func showCurrentForecastFailed(withErrorException error: ErrorExceptionAPI)
 }
 
 protocol MainWeatherPresenterToInteractorProtocol: class {
     var presenter: MainWeatherInteractorToPresenterProtocol? { get set }
     
     func fetchCurrentWeather(withWeatherRequest weatherRequest: WeatherRequest)
+    func fetchCurrentForecast(withWeatherRequest weatherRequest: WeatherRequest)
 }
 
 protocol MainWeatherInteractorToPresenterProtocol: class {
     func currentWeatherSucceed(withWeather weather: Weather)
     func currentWeatherFailed(withErrorException error: ErrorExceptionAPI)
+    func currentForecastSucceed(withForecast forecast: Forecast)
+    func currentForecastFailed(withErrorException error: ErrorExceptionAPI)
 }
 
 protocol MainWeatherViewToPresenterProtocol: class {
@@ -40,9 +45,11 @@ protocol MainWeatherViewToPresenterProtocol: class {
     var message: String { get }
     var weather: Weather? { get set }
     var weatherDetails: [WeatherDetailRow] { get }
+    var forecast: Forecast? { get set }
     
     func showSearchWeather()
     func getCurrentWeather(withLatitude latitude: Double, withLongitude longitude: Double)
+    func getCurrentForecast(withLatitude latitude: Double, withLongitude longitude: Double)
 }
 
 protocol MainWeatherPresenterToRouterProtocol: class {

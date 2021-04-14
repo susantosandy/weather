@@ -117,6 +117,14 @@
 		7DF357BF2626BE5F00D256F4 /* EnumWeatherDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF357BD2626BE5F00D256F4 /* EnumWeatherDetail.swift */; };
 		7DF357C32626BE8500D256F4 /* WeatherDetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF357C22626BE8500D256F4 /* WeatherDetailRow.swift */; };
 		7DF357C42626BE8500D256F4 /* WeatherDetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF357C22626BE8500D256F4 /* WeatherDetailRow.swift */; };
+		7DF357C82626CA1900D256F4 /* ForecastDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF357C72626CA1900D256F4 /* ForecastDAO.swift */; };
+		7DF357C92626CA1900D256F4 /* ForecastDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF357C72626CA1900D256F4 /* ForecastDAO.swift */; };
+		7DF357CE2626CA6400D256F4 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF357CD2626CA6400D256F4 /* Forecast.swift */; };
+		7DF357CF2626CA6400D256F4 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF357CD2626CA6400D256F4 /* Forecast.swift */; };
+		7DF357D52626CA7D00D256F4 /* ForecastCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF357D42626CA7D00D256F4 /* ForecastCity.swift */; };
+		7DF357D62626CA7D00D256F4 /* ForecastCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF357D42626CA7D00D256F4 /* ForecastCity.swift */; };
+		7DF357DA2626D08C00D256F4 /* String+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF357D92626D08C00D256F4 /* String+Time.swift */; };
+		7DF357DB2626D08C00D256F4 /* String+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF357D92626D08C00D256F4 /* String+Time.swift */; };
 		87EBC1CF0D648359C68BEDA2 /* libPods-Weather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7707454521F4E093049EE653 /* libPods-Weather.a */; };
 /* End PBXBuildFile section */
 
@@ -183,6 +191,10 @@
 		7DF357B82626BBCB00D256F4 /* Double+Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Measurement.swift"; sourceTree = "<group>"; };
 		7DF357BD2626BE5F00D256F4 /* EnumWeatherDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumWeatherDetail.swift; sourceTree = "<group>"; };
 		7DF357C22626BE8500D256F4 /* WeatherDetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailRow.swift; sourceTree = "<group>"; };
+		7DF357C72626CA1900D256F4 /* ForecastDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastDAO.swift; sourceTree = "<group>"; };
+		7DF357CD2626CA6400D256F4 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		7DF357D42626CA7D00D256F4 /* ForecastCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCity.swift; sourceTree = "<group>"; };
+		7DF357D92626D08C00D256F4 /* String+Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Time.swift"; sourceTree = "<group>"; };
 		BB11D4F75D345FC96C30ECC8 /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		BFD1A36F7ED33A2C08021CF1 /* Pods-WeatherStaging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherStaging.debug.xcconfig"; path = "Target Support Files/Pods-WeatherStaging/Pods-WeatherStaging.debug.xcconfig"; sourceTree = "<group>"; };
 		C5B8AAFCF74AA08F30454A74 /* Pods-WeatherStaging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherStaging.release.xcconfig"; path = "Target Support Files/Pods-WeatherStaging/Pods-WeatherStaging.release.xcconfig"; sourceTree = "<group>"; };
@@ -262,6 +274,7 @@
 			children = (
 				7DA42B812626101E00449018 /* BaseDAO.swift */,
 				7DA42B8E2626137900449018 /* WeatherDAO.swift */,
+				7DF357C72626CA1900D256F4 /* ForecastDAO.swift */,
 			);
 			path = DAOs;
 			sourceTree = "<group>";
@@ -269,8 +282,10 @@
 		7D4152512625C3ED008694CE /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				7DA42B96262613BD00449018 /* Weather */,
 				7DA42B5E26260EC700449018 /* ErrorExceptionAPI.swift */,
+				7DF357C22626BE8500D256F4 /* WeatherDetailRow.swift */,
+				7DF357CC2626CA3900D256F4 /* Forecast */,
+				7DA42B96262613BD00449018 /* Weather */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -280,7 +295,6 @@
 			children = (
 				7DA42B7C26260FCC00449018 /* EnumWeatherUnits.swift */,
 				7DF357BD2626BE5F00D256F4 /* EnumWeatherDetail.swift */,
-				7DF357C22626BE8500D256F4 /* WeatherDetailRow.swift */,
 			);
 			path = Enumerations;
 			sourceTree = "<group>";
@@ -293,6 +307,7 @@
 				7DA42B4B262607DB00449018 /* UIViewController+Navigation.swift */,
 				7DF357B32626BB6C00D256F4 /* Int64+Time.swift */,
 				7DF357B82626BBCB00D256F4 /* Double+Measurement.swift */,
+				7DF357D92626D08C00D256F4 /* String+Time.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -481,6 +496,15 @@
 			path = Weather;
 			sourceTree = "<group>";
 		};
+		7DF357CC2626CA3900D256F4 /* Forecast */ = {
+			isa = PBXGroup;
+			children = (
+				7DF357CD2626CA6400D256F4 /* Forecast.swift */,
+				7DF357D42626CA7D00D256F4 /* ForecastCity.swift */,
+			);
+			path = Forecast;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -658,6 +682,7 @@
 				7DA42B6726260F0B00449018 /* WeatherAPI.swift in Sources */,
 				7DA42BB02626143B00449018 /* WeatherVolume.swift in Sources */,
 				7DA42BB52626148200449018 /* WeatherCoordinate.swift in Sources */,
+				7DF357CF2626CA6400D256F4 /* Forecast.swift in Sources */,
 				7DF357C42626BE8500D256F4 /* WeatherDetailRow.swift in Sources */,
 				7DF357BA2626BBCB00D256F4 /* Double+Measurement.swift in Sources */,
 				7D4152DD2625CDB0008694CE /* UIColor+RGB.swift in Sources */,
@@ -668,6 +693,8 @@
 				7DA42B6F26260F5B00449018 /* BaseRequest.swift in Sources */,
 				7D4152BF2625CC87008694CE /* AboutWeatherRouter.swift in Sources */,
 				7DA42B6426260F0700449018 /* ApiWeather.swift in Sources */,
+				7DF357DB2626D08C00D256F4 /* String+Time.swift in Sources */,
+				7DF357D62626CA7D00D256F4 /* ForecastCity.swift in Sources */,
 				7DA42B7426260F7800449018 /* WeatherRequest.swift in Sources */,
 				7DA42B55262608EE00449018 /* SearchWeatherCell.swift in Sources */,
 				7D4152792625C81C008694CE /* MainWeatherPresenter.swift in Sources */,
@@ -688,6 +715,7 @@
 				7DA42B9D262613E300449018 /* Weather.swift in Sources */,
 				7DF357B52626BB6C00D256F4 /* Int64+Time.swift in Sources */,
 				7DA42BBF262614C600449018 /* WeatherMain.swift in Sources */,
+				7DF357C92626CA1900D256F4 /* ForecastDAO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,6 +739,7 @@
 				7D4FDCF32625B66F00F54C83 /* AppDelegate.swift in Sources */,
 				7DA42BAF2626143B00449018 /* WeatherVolume.swift in Sources */,
 				7DA42BB42626148200449018 /* WeatherCoordinate.swift in Sources */,
+				7DF357CE2626CA6400D256F4 /* Forecast.swift in Sources */,
 				7DF357C32626BE8500D256F4 /* WeatherDetailRow.swift in Sources */,
 				7DF357B92626BBCB00D256F4 /* Double+Measurement.swift in Sources */,
 				7D4152972625CB86008694CE /* SearchWeatherPresenter.swift in Sources */,
@@ -721,6 +750,8 @@
 				7DA42B6E26260F5B00449018 /* BaseRequest.swift in Sources */,
 				7D4152A72625CBD2008694CE /* SearchWeatherViewController.swift in Sources */,
 				7D4152BE2625CC87008694CE /* AboutWeatherRouter.swift in Sources */,
+				7DF357DA2626D08C00D256F4 /* String+Time.swift in Sources */,
+				7DF357D52626CA7D00D256F4 /* ForecastCity.swift in Sources */,
 				7DA42B7326260F7800449018 /* WeatherRequest.swift in Sources */,
 				7DA42B54262608EE00449018 /* SearchWeatherCell.swift in Sources */,
 				7D4152782625C81C008694CE /* MainWeatherPresenter.swift in Sources */,
@@ -741,6 +772,7 @@
 				7DA42B98262613CD00449018 /* Weather.swift in Sources */,
 				7DF357B42626BB6C00D256F4 /* Int64+Time.swift in Sources */,
 				7DA42BBE262614C600449018 /* WeatherMain.swift in Sources */,
+				7DF357C82626CA1900D256F4 /* ForecastDAO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

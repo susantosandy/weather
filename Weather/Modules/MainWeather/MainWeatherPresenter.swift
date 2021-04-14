@@ -17,13 +17,14 @@ class MainWeatherPresenter: MainWeatherViewToPresenterProtocol {
     var estimatedRowHeight: CGFloat = 500
     var spacing: CGFloat = 8
     var collectionCellWidth: CGFloat = 78
-    var collectionHeight: CGFloat = 115
+    var collectionHeight: CGFloat = 151
     var currentLocationLatitude: Double?
     var currentLocationLongitude: Double?
     var enumWeatherUnit: EnumWeatherUnits = .metric
     var title = "Location Permission"
     var message = "Go to settings and allow this app to access your location!"
     var weather: Weather?
+    var forecast: Forecast?
     var weatherDetails: [WeatherDetailRow] {
         get{
             var rows: [WeatherDetailRow] = []
@@ -80,6 +81,14 @@ class MainWeatherPresenter: MainWeatherViewToPresenterProtocol {
         interactor?.fetchCurrentWeather(withWeatherRequest: weatherRequest)
     }
     
+    func getCurrentForecast(withLatitude latitude: Double, withLongitude longitude: Double) {
+        let weatherRequest = WeatherRequest()
+        weatherRequest.latitude = latitude
+        weatherRequest.longitude = longitude
+        weatherRequest.unit = enumWeatherUnit
+        interactor?.fetchCurrentForecast(withWeatherRequest: weatherRequest)
+    }
+    
     func showSearchWeather() {
         router?.showSearchWeather()
     }
@@ -94,4 +103,14 @@ extension MainWeatherPresenter: MainWeatherInteractorToPresenterProtocol {
     func currentWeatherFailed(withErrorException error: ErrorExceptionAPI) {
         view?.showCurrentWeatherFailed(withErrorException: error)
     }
+    
+    func currentForecastSucceed(withForecast forecast: Forecast) {
+        self.forecast = forecast
+        view?.showCurrentForecastSucceed()
+    }
+    
+    func currentForecastFailed(withErrorException error: ErrorExceptionAPI) {
+        view?.showCurrentForecastFailed(withErrorException: error)
+    }
+    
 }

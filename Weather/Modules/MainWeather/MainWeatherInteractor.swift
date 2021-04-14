@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MainWeatherInteractor: MainWeatherPresenterToInteractorProtocol {
+class MainWeatherInteractor: MainWeatherPresenterToInteractorProtocol {    
     
     var presenter: MainWeatherInteractorToPresenterProtocol?
     
@@ -22,6 +22,20 @@ class MainWeatherInteractor: MainWeatherPresenterToInteractorProtocol {
             }
         }) { (error) in
             self.presenter?.currentWeatherFailed(withErrorException: error)
+        }
+    }
+    
+    func fetchCurrentForecast(withWeatherRequest weatherRequest: WeatherRequest) {
+        WeatherAPI.instance.request(withRequest: ApiWeather.getForecastWeather(request: weatherRequest), success: { (json) in
+            let forecastDAO = ForecastDAO(json: json)
+            
+            if let forecast = forecastDAO.forecast {
+                self.presenter?.currentForecastSucceed(withForecast: forecast)
+            } else {
+                self.presenter?.currentForecastFailed(withErrorException: InternalServerErrorException())
+            }
+        }) { (error) in
+            self.presenter?.currentForecastFailed(withErrorException: error)
         }
     }
 }
