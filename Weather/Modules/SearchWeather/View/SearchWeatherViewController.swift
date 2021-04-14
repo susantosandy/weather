@@ -54,13 +54,18 @@ class SearchWeatherViewController: BaseViewController {
 
 extension SearchWeatherViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return presenter.search?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
         
         let cell = tableView.dequeueReusableCell(withIdentifier: ReuseIdentifier.searchWeatherCell) as! SearchWeatherCell
+        
+        if let search = presenter.search, search.list.indices.contains(row) {
+            let weather = search.list[row]
+            cell.setupData(withWeather: weather, withUnits: presenter.enumWeatherUnit)
+        }
         
         return cell
     }
@@ -81,9 +86,24 @@ extension SearchWeatherViewController: UITableViewDelegate, UITableViewDataSourc
 extension SearchWeatherViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        
+        if let currentText = searchBar.text, currentText.count >= presenter.minLengthSearch {
+            presenter.cityName = currentText
+            presenter.getSearchWeather(withCityName: currentText)
+        }
     }
 }
 
 extension SearchWeatherViewController: SearchWeatherPresenterToViewProtocol {
+    func showSearchSucceed() {
+        tableViewSearch.reloadData()
+    }
     
+    func showSearchEmpty() {
+        tableViewSearch.reloadData()
+    }
+    
+    func showSearchFailed(withErrorException error: ErrorExceptionAPI) {
+        
+    }
 }

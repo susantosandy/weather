@@ -20,12 +20,19 @@ enum ApiWeather: URLRequestConvertible {
      */
     case getForecastWeather(request: WeatherRequest)
     
+    /**
+     - returns: SearchDAO
+     */
+    case getSearchWeather(request: WeatherRequest)
+    
     var path: String {
         switch self {
         case .getCurrentWeather(_):
             return "weather"
         case .getForecastWeather(_):
             return "forecast"
+        case .getSearchWeather(_):
+            return "find"
         }
     }
     
@@ -35,6 +42,8 @@ enum ApiWeather: URLRequestConvertible {
             return .get
         case .getForecastWeather(_):
             return .get
+        case .getSearchWeather(_):
+            return .get
         }
     }
     
@@ -43,6 +52,8 @@ enum ApiWeather: URLRequestConvertible {
         case .getCurrentWeather(let request):
             return request.buildForParameterAPI()
         case .getForecastWeather(let request):
+            return request.buildForParameterAPI()
+        case .getSearchWeather(let request):
             return request.buildForParameterAPI()
         }
     }
