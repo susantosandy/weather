@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class MainWeatherViewController: BaseViewController {
     
@@ -30,6 +31,8 @@ class MainWeatherViewController: BaseViewController {
     
     var presenter: MainWeatherViewToPresenterProtocol!
     
+    private let locationManager = CLLocationManager()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -39,12 +42,19 @@ class MainWeatherViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupEmpty()
         setupCollectionView()
         setupTableView()
+        checkLocationServices()
     }
 
     @IBAction func currentLocationPressed(_ sender: UIButton) {
+        let latitude = presenter.currentLocationLatitude
+        let longitude = presenter.currentLocationLongitude
         
+        if let latitude = latitude, let longitude = longitude {
+            presenter.getCurrentWeather(withLatitude: latitude, withLongitude: longitude)
+        }
     }
     
     @IBAction func searchLocationPressed(_ sender: UIButton) {
@@ -53,6 +63,32 @@ class MainWeatherViewController: BaseViewController {
     
     @IBAction func optionMenuPressed(_ sender: UIButton) {
         
+    }
+    
+    // Setup Data
+    func setupData() {
+        if let presenter = presenter, let weather = presenter.weather {
+            let units = presenter.enumWeatherUnit
+            
+            labelCity.text = weather.name
+            labelDate.text = weather.dataCalulation?.timestampToString()
+            imageWeather.image = UIImage(named: "ic_\(weather.weathers.first?.icon ?? "")")
+            labelCurrentTemperature.text = weather.main?.temperature?.measurement(withUnitTemperature: units)
+            labelTemperature.text = "\(weather.main?.temperatureMax?.measurement(withUnitTemperature: units) ?? "") /  \(weather.main?.temperatureMin?.measurement(withUnitTemperature: units) ?? "") | Feel like \(weather.main?.temperature?.measurement(withUnitTemperature: units) ?? "")"
+            labelWeather.text = weather.weathers.first?.description?.capitalized
+        } else {
+            setupEmpty()
+        }
+    }
+    
+    // Setup Empty
+    func setupEmpty() {
+        labelCity.text = nil
+        labelDate.text = nil
+        imageWeather.image = nil
+        labelCurrentTemperature.text = nil
+        labelTemperature.text = nil
+        labelWeather.text = nil
     }
     
     // Setup Collection
@@ -71,6 +107,73 @@ class MainWeatherViewController: BaseViewController {
         tableViewDetails.rowHeight = UITableView.automaticDimension
         tableViewDetails.intrinsicTableViewDelegate = self
         tableViewDetails.register(UINib(nibName: ReuseIdentifier.weatherDetailCell, bundle: nil), forCellReuseIdentifier: ReuseIdentifier.weatherDetailCell)
+    }
+    
+    func checkLocationServices() {
+        if CLLocationManager.locationServicesEnabled() {
+            setupLocation()
+            checkLocation()
+        } else {
+            locationDenied()
+        }
+    }
+    
+    func setupLocation() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+    }
+    
+    func checkLocation() {
+        switch CLLocationManager.authorizationStatus() {
+        case .denied:
+            locationDenied()
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .authorizedWhenInUse, .restricted, .authorizedAlways:
+            break
+        @unknown default:
+            break
+        }
+    }
+    
+    func locationDenied() {
+        let alertController = UIAlertController(title: presenter.title, message: presenter.message, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        let openAction = UIAlertAction(title: "Settings", style: .default) { (_) in
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+        
+        alertController.addAction(openAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension MainWeatherViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        checkLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else {
+            return
+        }
+        
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        
+        presenter.currentLocationLatitude = latitude
+        presenter.currentLocationLongitude = longitude
+        
+        presenter.getCurrentWeather(withLatitude: latitude, withLongitude: longitude)
+        
+        locationManager.stopUpdatingLocation()
     }
 }
 
@@ -133,5 +236,16 @@ extension MainWeatherViewController: IntrinsicTableViewDelegate {
 }
 
 extension MainWeatherViewController: MainWeatherPresenterToViewProtocol {
+    func showCurrentWeatherSucceed() {
+        setupWeather()
+    }
     
+    func showCurrentWeatherFailed(withErrorException error: ErrorExceptionAPI) {
+        
+    }
+    
+    func setupWeather() {
+        setupData()
+        tableViewDetails.reloadData()
+    }
 }

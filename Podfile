@@ -5,7 +5,7 @@ def weather_pods
   pod 'Alamofire'
   pod 'AlamofireNetworkActivityLogger'
   pod 'SwiftyJSON'
-  pod 'ReachabilitySwift'
+  pod 'ReachabilitySwift', '~> 4.3.1'
 end
 
 target 'Weather' do
