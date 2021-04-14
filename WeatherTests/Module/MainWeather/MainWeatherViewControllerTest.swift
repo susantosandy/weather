@@ -34,8 +34,12 @@ class MainWeatherViewControllerTest: XCTestCase {
     }
     
     static func createViewController() -> MainWeatherViewController? {
-        return MainWeatherRouter.createModule()
+        let viewController = MainWeatherRouter.createModule()
+        viewController.loadViewIfNeeded()
+        return viewController
     }
+    
+    // Test IBOutlet
     
     func testHas_storyBoardMainWeather() {
         XCTAssertNotNil(storyboard)
@@ -46,54 +50,71 @@ class MainWeatherViewControllerTest: XCTestCase {
     }
     
     func testHas_buttonCurrentLocation() {
-        XCTAssertNil(viewController?.buttonCurrentLocation)
+        XCTAssertNotNil(viewController?.buttonCurrentLocation)
     }
     
     func testHas_buttonSearch() {
-        XCTAssertNil(viewController?.buttonSearch)
+        XCTAssertNotNil(viewController?.buttonSearch)
     }
     
     func testHas_buttonOptionMenu() {
-        XCTAssertNil(viewController?.buttonOptionMenu)
+        XCTAssertNotNil(viewController?.buttonOptionMenu)
     }
     
     func testHas_labelCity() {
-        XCTAssertNil(viewController?.labelCity)
+        XCTAssertNotNil(viewController?.labelCity)
     }
     
     func testHas_labelDate() {
-        XCTAssertNil(viewController?.labelDate)
+        XCTAssertNotNil(viewController?.labelDate)
     }
     
     func testHas_imageWeather() {
-        XCTAssertNil(viewController?.imageWeather)
+        XCTAssertNotNil(viewController?.imageWeather)
     }
     
     func testHas_labelCurrentTemperature() {
-        XCTAssertNil(viewController?.labelCurrentTemperature)
+        XCTAssertNotNil(viewController?.labelCurrentTemperature)
     }
     
     func testHas_labelTemperature() {
-        XCTAssertNil(viewController?.labelTemperature)
+        XCTAssertNotNil(viewController?.labelTemperature)
     }
     
     func testHas_labelWeather() {
-        XCTAssertNil(viewController?.labelWeather)
+        XCTAssertNotNil(viewController?.labelWeather)
     }
     
     func testHas_collectionViewForecast() {
-        XCTAssertNil(viewController?.collectionViewForecast)
+        XCTAssertNotNil(viewController?.collectionViewForecast)
     }
     
     func testHas_collectionViewHeight() {
-        XCTAssertNil(viewController?.collectionViewHeight)
+        XCTAssertNotNil(viewController?.collectionViewHeight)
     }
     
     func testHas_tableViewDetails() {
-        XCTAssertNil(viewController?.tableViewDetails)
+        XCTAssertNotNil(viewController?.tableViewDetails)
     }
     
     func testHas_tableViewDetailsHeight() {
-        XCTAssertNil(viewController?.tableViewDetailsHeight)
+        XCTAssertNotNil(viewController?.tableViewDetailsHeight)
+    }
+    
+    // Test IBAction
+    
+    func testHasAction_currentLocationPressed() {
+        let control: UIControl? = viewController?.buttonCurrentLocation
+        XCTAssertTrue(control?.actions(forTarget: viewController, forControlEvent: .touchUpInside)?.contains("currentLocationPressed:") == true)
+    }
+    
+    func testHasAction_searchLocationPressed() {
+        let control: UIControl? = viewController?.buttonSearch
+        XCTAssertTrue(control?.actions(forTarget: viewController, forControlEvent: .touchUpInside)?.contains("searchLocationPressed:") == true)
+    }
+    
+    func testHasAction_optionMenuPressed() {
+        let control: UIControl? = viewController?.buttonOptionMenu
+        XCTAssertTrue(control?.actions(forTarget: viewController, forControlEvent: .touchUpInside)?.contains("optionMenuPressed:") == true)
     }
 }
