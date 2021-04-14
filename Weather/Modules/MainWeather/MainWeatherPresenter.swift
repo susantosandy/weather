@@ -77,6 +77,7 @@ class MainWeatherPresenter: MainWeatherViewToPresenterProtocol {
     }
     
     func getCurrentWeather(withLatitude latitude: Double, withLongitude longitude: Double) {
+        view?.showLoading()
         let weatherRequest = WeatherRequest()
         weatherRequest.latitude = latitude
         weatherRequest.longitude = longitude
@@ -85,6 +86,7 @@ class MainWeatherPresenter: MainWeatherViewToPresenterProtocol {
     }
     
     func getCurrentForecast(withLatitude latitude: Double, withLongitude longitude: Double) {
+        view?.showLoading()
         let weatherRequest = WeatherRequest()
         weatherRequest.latitude = latitude
         weatherRequest.longitude = longitude
@@ -93,6 +95,7 @@ class MainWeatherPresenter: MainWeatherViewToPresenterProtocol {
     }
     
     func getWeatherDetail(withCityId cityId: Int) {
+        view?.showLoading()
         let weatherRequest = WeatherRequest()
         weatherRequest.id = cityId
         weatherRequest.unit = enumWeatherUnit
@@ -100,6 +103,7 @@ class MainWeatherPresenter: MainWeatherViewToPresenterProtocol {
     }
     
     func getWeatherForecastDetail(withCityId cityId: Int) {
+        view?.showLoading()
         let weatherRequest = WeatherRequest()
         weatherRequest.id = cityId
         weatherRequest.unit = enumWeatherUnit
@@ -113,38 +117,46 @@ class MainWeatherPresenter: MainWeatherViewToPresenterProtocol {
 
 extension MainWeatherPresenter: MainWeatherInteractorToPresenterProtocol {
     func currentWeatherSucceed(withWeather weather: Weather) {
+        view?.hideLoading()
         self.weather = weather
         view?.showCurrentWeatherSucceed()
     }
     
     func currentWeatherFailed(withErrorException error: ErrorExceptionAPI) {
+        view?.hideLoading()
         view?.showCurrentWeatherFailed(withErrorException: error)
     }
     
     func currentForecastSucceed(withForecast forecast: Forecast) {
+        view?.hideLoading()
         self.forecast = forecast
         view?.showCurrentForecastSucceed()
     }
     
     func currentForecastFailed(withErrorException error: ErrorExceptionAPI) {
+        view?.hideLoading()
         view?.showCurrentForecastFailed(withErrorException: error)
     }
     
     func weatherDetailSucceed(withWeather weather: Weather) {
+        view?.hideLoading()
         self.weather = weather
         view?.showWeatherDetailSucceed()
     }
     
     func weatherDetailFailed(withErrorException error: ErrorExceptionAPI) {
+        view?.hideLoading()
         view?.showWeatherDetailFailed(withErrorException: error)
     }
     
     func weatherForecastDetailSucceed(withForecast forecast: Forecast) {
+        view?.hideLoading()
         self.forecast = forecast
         view?.showForecastDetailSucceed()
     }
     
     func weatherForecastDetailFailed(withErrorException error: ErrorExceptionAPI) {
+        view?.hideLoading()
         view?.showForecastDetailFailed(withErrorException: error)
     }
 }

@@ -47,6 +47,20 @@ class MainWeatherViewController: BaseViewController {
         setupTableView()
         checkLocationServices()
     }
+    
+    override func doTryAgainView(_ button: UIButton) {
+        super.doTryAgainView(button)
+        
+        if let cityId = presenter.cityId {
+            // Weather Detail
+            presenter.getWeatherDetail(withCityId: cityId)
+            presenter.getWeatherForecastDetail(withCityId: cityId)
+        } else if let latitude = presenter.currentLocationLatitude, let longitude = presenter.currentLocationLongitude {
+            // Current Weather
+            presenter.getCurrentWeather(withLatitude: latitude, withLongitude: longitude)
+            presenter.getCurrentForecast(withLatitude: latitude, withLongitude: longitude)
+        }
+    }
 
     @IBAction func currentLocationPressed(_ sender: UIButton) {
         let latitude = presenter.currentLocationLatitude
@@ -129,13 +143,15 @@ class MainWeatherViewController: BaseViewController {
     }
     
     func checkLocation() {
+        showPermissionView()
+        
         switch CLLocationManager.authorizationStatus() {
         case .denied:
             locationDenied()
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
         case .authorizedWhenInUse, .restricted, .authorizedAlways:
-            break
+            stopLoading()
         @unknown default:
             break
         }
@@ -156,6 +172,10 @@ class MainWeatherViewController: BaseViewController {
         alertController.addAction(openAction)
         
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func showPermissionView() {
+        showEmpty(withTitle: presenter.title, withMessage: presenter.message, inView: view)
     }
 }
 
@@ -267,12 +287,20 @@ extension MainWeatherViewController: SearchWeatherViewDelegate {
 }
 
 extension MainWeatherViewController: MainWeatherPresenterToViewProtocol {
+    func showLoading() {
+        showLoadingWithView(withView: view)
+    }
+    
+    func hideLoading() {
+        stopLoading()
+    }
+    
     func showCurrentWeatherSucceed() {
         setupWeather()
     }
     
     func showCurrentWeatherFailed(withErrorException error: ErrorExceptionAPI) {
-        
+        showError(withError: error)
     }
     
     func showCurrentForecastSucceed() {
@@ -280,7 +308,7 @@ extension MainWeatherViewController: MainWeatherPresenterToViewProtocol {
     }
     
     func showCurrentForecastFailed(withErrorException error: ErrorExceptionAPI) {
-        
+        showError(withError: error)
     }
     
     func showWeatherDetailSucceed() {
@@ -288,7 +316,7 @@ extension MainWeatherViewController: MainWeatherPresenterToViewProtocol {
     }
     
     func showWeatherDetailFailed(withErrorException error: ErrorExceptionAPI) {
-        
+        showError(withError: error)
     }
     
     func showForecastDetailSucceed() {
@@ -296,7 +324,7 @@ extension MainWeatherViewController: MainWeatherPresenterToViewProtocol {
     }
     
     func showForecastDetailFailed(withErrorException error: ErrorExceptionAPI) {
-        
+        showError(withError: error)
     }
     
     func setupWeather() {

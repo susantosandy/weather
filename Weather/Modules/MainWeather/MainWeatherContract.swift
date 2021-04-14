@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 protocol MainWeatherPresenterToViewProtocol: class {
+    func showLoading()
+    func hideLoading()
+    
     func showCurrentWeatherSucceed()
     func showCurrentWeatherFailed(withErrorException error: ErrorExceptionAPI)
     func showCurrentForecastSucceed()

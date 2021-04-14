@@ -32,6 +32,14 @@ class SearchWeatherViewController: BaseViewController {
         setupTableView()
     }
     
+    override func doTryAgainView(_ button: UIButton) {
+        super.doTryAgainView(button)
+        
+        if let cityName = presenter.cityName {
+            presenter.getSearchWeather(withCityName: cityName)
+        }
+    }
+    
     func setupNavigation() {
         let searchBar = UISearchBar()
         searchBar.heightAnchor.constraint(equalToConstant: 44).isActive = true
@@ -106,15 +114,23 @@ extension SearchWeatherViewController: UISearchBarDelegate {
 }
 
 extension SearchWeatherViewController: SearchWeatherPresenterToViewProtocol {
+    func showLoading() {
+        showLoadingWithView(withView: view)
+    }
+    
+    func hideLoading() {
+        stopLoading()
+    }
+    
     func showSearchSucceed() {
         tableViewSearch.reloadData()
     }
     
     func showSearchEmpty() {
-        tableViewSearch.reloadData()
+        showEmpty(withTitle: "Empty", withMessage: "Data Not Found")
     }
     
     func showSearchFailed(withErrorException error: ErrorExceptionAPI) {
-        
+        showError(withError: error)
     }
 }

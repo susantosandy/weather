@@ -21,6 +21,7 @@ class SearchWeatherPresenter: SearchWeatherViewToPresenterProtocol {
     var search: Search?
     
     func getSearchWeather(withCityName cityName: String) {
+        view?.showLoading()
         let weatherRequest = WeatherRequest()
         weatherRequest.city = cityName
         weatherRequest.unit = enumWeatherUnit
@@ -30,16 +31,19 @@ class SearchWeatherPresenter: SearchWeatherViewToPresenterProtocol {
 
 extension SearchWeatherPresenter: SearchWeatherInteractorToPresenterProtocol {
     func searchSucceed(withSearch search: Search) {
+        view?.hideLoading()
         self.search = search
         view?.showSearchSucceed()
     }
     
     func searchEmpty() {
+        view?.hideLoading()
         self.search = nil
         view?.showSearchEmpty()
     }
     
     func searchFailed(withErrorException error: ErrorExceptionAPI) {
+        view?.hideLoading()
         view?.showSearchFailed(withErrorException: error)
     }
 }

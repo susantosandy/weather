@@ -109,6 +109,12 @@
 		7DA42BBF262614C600449018 /* WeatherMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA42BBD262614C600449018 /* WeatherMain.swift */; };
 		7DA42BC3262614DD00449018 /* WeatherSys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA42BC2262614DD00449018 /* WeatherSys.swift */; };
 		7DA42BC4262614DD00449018 /* WeatherSys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA42BC2262614DD00449018 /* WeatherSys.swift */; };
+		7DB696DF26271E3E00BDE0BA /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB696DE26271E3E00BDE0BA /* LoadingView.swift */; };
+		7DB696E026271E3E00BDE0BA /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB696DE26271E3E00BDE0BA /* LoadingView.swift */; };
+		7DB696E626271E7300BDE0BA /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DB696E526271E7300BDE0BA /* LoadingView.xib */; };
+		7DB696E726271E7300BDE0BA /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DB696E526271E7300BDE0BA /* LoadingView.xib */; };
+		7DB696EB26271F7900BDE0BA /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB696EA26271F7900BDE0BA /* UIView+Nib.swift */; };
+		7DB696EC26271F7900BDE0BA /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB696EA26271F7900BDE0BA /* UIView+Nib.swift */; };
 		7DF357B42626BB6C00D256F4 /* Int64+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF357B32626BB6C00D256F4 /* Int64+Time.swift */; };
 		7DF357B52626BB6C00D256F4 /* Int64+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF357B32626BB6C00D256F4 /* Int64+Time.swift */; };
 		7DF357B92626BBCB00D256F4 /* Double+Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF357B82626BBCB00D256F4 /* Double+Measurement.swift */; };
@@ -191,6 +197,9 @@
 		7DA42BB8262614A000449018 /* WeatherItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherItem.swift; sourceTree = "<group>"; };
 		7DA42BBD262614C600449018 /* WeatherMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherMain.swift; sourceTree = "<group>"; };
 		7DA42BC2262614DD00449018 /* WeatherSys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSys.swift; sourceTree = "<group>"; };
+		7DB696DE26271E3E00BDE0BA /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		7DB696E526271E7300BDE0BA /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		7DB696EA26271F7900BDE0BA /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		7DF357B32626BB6C00D256F4 /* Int64+Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64+Time.swift"; sourceTree = "<group>"; };
 		7DF357B82626BBCB00D256F4 /* Double+Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Measurement.swift"; sourceTree = "<group>"; };
 		7DF357BD2626BE5F00D256F4 /* EnumWeatherDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumWeatherDetail.swift; sourceTree = "<group>"; };
@@ -316,6 +325,7 @@
 				7DF357D92626D08C00D256F4 /* String+Time.swift */,
 				7D4152DB2625CDB0008694CE /* UIColor+RGB.swift */,
 				7DA42B4B262607DB00449018 /* UIViewController+Navigation.swift */,
+				7DB696EA26271F7900BDE0BA /* UIView+Nib.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -333,6 +343,7 @@
 			children = (
 				7D4152CD2625CD39008694CE /* BaseViewController.swift */,
 				7D41525F2625C6A2008694CE /* AboutWeather */,
+				7DB696DB26271DD800BDE0BA /* Loading */,
 				7D41525D2625C679008694CE /* MainWeather */,
 				7D41525E2625C692008694CE /* SearchWeather */,
 			);
@@ -504,6 +515,23 @@
 			path = Weather;
 			sourceTree = "<group>";
 		};
+		7DB696DB26271DD800BDE0BA /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				7DB696DC26271DE200BDE0BA /* LoadingView */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
+		7DB696DC26271DE200BDE0BA /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				7DB696DE26271E3E00BDE0BA /* LoadingView.swift */,
+				7DB696E526271E7300BDE0BA /* LoadingView.xib */,
+			);
+			path = LoadingView;
+			sourceTree = "<group>";
+		};
 		7DF357CC2626CA3900D256F4 /* Forecast */ = {
 			isa = PBXGroup;
 			children = (
@@ -602,6 +630,7 @@
 				7D41521D2625BADF008694CE /* Assets.xcassets in Resources */,
 				7D41526A2625C777008694CE /* MainWeather.storyboard in Resources */,
 				7D4153062625FE4D008694CE /* ForecastWeatherCell.xib in Resources */,
+				7DB696E726271E7300BDE0BA /* LoadingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,6 +644,7 @@
 				7D4152C42625CCA0008694CE /* AboutWeather.storyboard in Resources */,
 				7DA42B56262608EE00449018 /* SearchWeatherCell.xib in Resources */,
 				7D4152F32625DFE5008694CE /* WeatherDetailCell.xib in Resources */,
+				7DB696E626271E7300BDE0BA /* LoadingView.xib in Resources */,
 				7D4FDCFC2625B67100F54C83 /* Assets.xcassets in Resources */,
 				7D4152622625C754008694CE /* MainWeather.storyboard in Resources */,
 			);
@@ -689,6 +719,7 @@
 				7DA42B922626139200449018 /* WeatherDAO.swift in Sources */,
 				7DF357E52626DE4500D256F4 /* Search.swift in Sources */,
 				7DA42B7E26260FCC00449018 /* EnumWeatherUnits.swift in Sources */,
+				7DB696E026271E3E00BDE0BA /* LoadingView.swift in Sources */,
 				7DA42B6726260F0B00449018 /* WeatherAPI.swift in Sources */,
 				7DA42BB02626143B00449018 /* WeatherVolume.swift in Sources */,
 				7DA42BB52626148200449018 /* WeatherCoordinate.swift in Sources */,
@@ -711,6 +742,7 @@
 				7D4152CA2625CCB2008694CE /* AboutWeatherViewController.swift in Sources */,
 				7DA42B832626101F00449018 /* BaseDAO.swift in Sources */,
 				7DA42BBA262614A000449018 /* WeatherItem.swift in Sources */,
+				7DB696EC26271F7900BDE0BA /* UIView+Nib.swift in Sources */,
 				7D4153042625FE4D008694CE /* ForecastWeatherCell.swift in Sources */,
 				7D41529D2625CB95008694CE /* SearchWeatherRouter.swift in Sources */,
 				7D41526F2625C7EC008694CE /* MainWeatherContract.swift in Sources */,
@@ -748,6 +780,7 @@
 				7DA42B8F2626137900449018 /* WeatherDAO.swift in Sources */,
 				7DF357E42626DE4500D256F4 /* Search.swift in Sources */,
 				7DA42B7D26260FCC00449018 /* EnumWeatherUnits.swift in Sources */,
+				7DB696DF26271E3E00BDE0BA /* LoadingView.swift in Sources */,
 				7D4FDCF32625B66F00F54C83 /* AppDelegate.swift in Sources */,
 				7DA42BAF2626143B00449018 /* WeatherVolume.swift in Sources */,
 				7DA42BB42626148200449018 /* WeatherCoordinate.swift in Sources */,
@@ -770,6 +803,7 @@
 				7D4152C92625CCB2008694CE /* AboutWeatherViewController.swift in Sources */,
 				7DA42B822626101F00449018 /* BaseDAO.swift in Sources */,
 				7DA42BB9262614A000449018 /* WeatherItem.swift in Sources */,
+				7DB696EB26271F7900BDE0BA /* UIView+Nib.swift in Sources */,
 				7D4153032625FE4D008694CE /* ForecastWeatherCell.swift in Sources */,
 				7D41529C2625CB95008694CE /* SearchWeatherRouter.swift in Sources */,
 				7D4152662625C771008694CE /* MainWeatherViewController.swift in Sources */,

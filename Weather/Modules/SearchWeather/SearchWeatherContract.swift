@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 protocol SearchWeatherPresenterToViewProtocol: class {
+    func showLoading()
+    func hideLoading()
+    
     func showSearchSucceed()
     func showSearchEmpty()
     func showSearchFailed(withErrorException error: ErrorExceptionAPI)
