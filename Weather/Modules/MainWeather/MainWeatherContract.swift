@@ -13,6 +13,10 @@ protocol MainWeatherPresenterToViewProtocol: class {
     func showCurrentWeatherFailed(withErrorException error: ErrorExceptionAPI)
     func showCurrentForecastSucceed()
     func showCurrentForecastFailed(withErrorException error: ErrorExceptionAPI)
+    func showWeatherDetailSucceed()
+    func showWeatherDetailFailed(withErrorException error: ErrorExceptionAPI)
+    func showForecastDetailSucceed()
+    func showForecastDetailFailed(withErrorException error: ErrorExceptionAPI)
 }
 
 protocol MainWeatherPresenterToInteractorProtocol: class {
@@ -20,6 +24,8 @@ protocol MainWeatherPresenterToInteractorProtocol: class {
     
     func fetchCurrentWeather(withWeatherRequest weatherRequest: WeatherRequest)
     func fetchCurrentForecast(withWeatherRequest weatherRequest: WeatherRequest)
+    func fetchWeatherDetail(withWeatherRequest weatherRequest: WeatherRequest)
+    func fetchForecastDetail(withWeatherRequest weatherRequest: WeatherRequest)
 }
 
 protocol MainWeatherInteractorToPresenterProtocol: class {
@@ -27,6 +33,10 @@ protocol MainWeatherInteractorToPresenterProtocol: class {
     func currentWeatherFailed(withErrorException error: ErrorExceptionAPI)
     func currentForecastSucceed(withForecast forecast: Forecast)
     func currentForecastFailed(withErrorException error: ErrorExceptionAPI)
+    func weatherDetailSucceed(withWeather weather: Weather)
+    func weatherDetailFailed(withErrorException error: ErrorExceptionAPI)
+    func weatherForecastDetailSucceed(withForecast forecast: Forecast)
+    func weatherForecastDetailFailed(withErrorException error: ErrorExceptionAPI)
 }
 
 protocol MainWeatherViewToPresenterProtocol: class {
@@ -46,10 +56,13 @@ protocol MainWeatherViewToPresenterProtocol: class {
     var weather: Weather? { get set }
     var weatherDetails: [WeatherDetailRow] { get }
     var forecast: Forecast? { get set }
+    var cityId: Int? { get set }
     
     func showSearchWeather()
     func getCurrentWeather(withLatitude latitude: Double, withLongitude longitude: Double)
     func getCurrentForecast(withLatitude latitude: Double, withLongitude longitude: Double)
+    func getWeatherDetail(withCityId cityId: Int)
+    func getWeatherForecastDetail(withCityId cityId: Int)
 }
 
 protocol MainWeatherPresenterToRouterProtocol: class {

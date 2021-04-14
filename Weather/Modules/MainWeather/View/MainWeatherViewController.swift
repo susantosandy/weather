@@ -251,6 +251,14 @@ extension MainWeatherViewController: IntrinsicTableViewDelegate {
     }
 }
 
+extension MainWeatherViewController: SearchWeatherViewDelegate {
+    func searchWeatherViewController(withView view: SearchWeatherViewController, withCityId cityId: Int) {
+        presenter.cityId = cityId
+        presenter.getWeatherForecastDetail(withCityId: cityId)
+        presenter.getWeatherDetail(withCityId: cityId)
+    }
+}
+
 extension MainWeatherViewController: MainWeatherPresenterToViewProtocol {
     func showCurrentWeatherSucceed() {
         setupWeather()
@@ -265,6 +273,22 @@ extension MainWeatherViewController: MainWeatherPresenterToViewProtocol {
     }
     
     func showCurrentForecastFailed(withErrorException error: ErrorExceptionAPI) {
+        
+    }
+    
+    func showWeatherDetailSucceed() {
+        setupWeather()
+    }
+    
+    func showWeatherDetailFailed(withErrorException error: ErrorExceptionAPI) {
+        
+    }
+    
+    func showForecastDetailSucceed() {
+        setupForecast()
+    }
+    
+    func showForecastDetailFailed(withErrorException error: ErrorExceptionAPI) {
         
     }
     

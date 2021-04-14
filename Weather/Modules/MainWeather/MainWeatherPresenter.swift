@@ -25,6 +25,7 @@ class MainWeatherPresenter: MainWeatherViewToPresenterProtocol {
     var message = "Go to settings and allow this app to access your location!"
     var weather: Weather?
     var forecast: Forecast?
+    var cityId: Int?
     var weatherDetails: [WeatherDetailRow] {
         get{
             var rows: [WeatherDetailRow] = []
@@ -89,6 +90,20 @@ class MainWeatherPresenter: MainWeatherViewToPresenterProtocol {
         interactor?.fetchCurrentForecast(withWeatherRequest: weatherRequest)
     }
     
+    func getWeatherDetail(withCityId cityId: Int) {
+        let weatherRequest = WeatherRequest()
+        weatherRequest.id = cityId
+        weatherRequest.unit = enumWeatherUnit
+        interactor?.fetchWeatherDetail(withWeatherRequest: weatherRequest)
+    }
+    
+    func getWeatherForecastDetail(withCityId cityId: Int) {
+        let weatherRequest = WeatherRequest()
+        weatherRequest.id = cityId
+        weatherRequest.unit = enumWeatherUnit
+        interactor?.fetchForecastDetail(withWeatherRequest: weatherRequest)
+    }
+    
     func showSearchWeather() {
         router?.showSearchWeather()
     }
@@ -113,4 +128,21 @@ extension MainWeatherPresenter: MainWeatherInteractorToPresenterProtocol {
         view?.showCurrentForecastFailed(withErrorException: error)
     }
     
+    func weatherDetailSucceed(withWeather weather: Weather) {
+        self.weather = weather
+        view?.showWeatherDetailSucceed()
+    }
+    
+    func weatherDetailFailed(withErrorException error: ErrorExceptionAPI) {
+        view?.showWeatherDetailFailed(withErrorException: error)
+    }
+    
+    func weatherForecastDetailSucceed(withForecast forecast: Forecast) {
+        self.forecast = forecast
+        view?.showForecastDetailSucceed()
+    }
+    
+    func weatherForecastDetailFailed(withErrorException error: ErrorExceptionAPI) {
+        view?.showForecastDetailFailed(withErrorException: error)
+    }
 }
